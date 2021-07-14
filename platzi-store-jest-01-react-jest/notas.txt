@@ -1,0 +1,37 @@
+Jest
+	-Libreria para poder realizar pruebas unitarias a tus componentes
+		-Se necesita de la libreria "enzyme -D" y "enzyme-adapter-react-16 -D", la cual es una libreria para poder 
+		configurar/empoderar jest con algunas funcionalidades
+		-Se necesita configurar jest en el package.json creando la propiedad "jest" y adentro la propiedad "setupFilesAfterEnv"
+		con un arreglo de los path que usara jest para agarrar los archivos de pruebas
+		-Se necesita crear un archivo llamado "setupTest.js" dentro de la carpeta __test__. Leer mas sobre las diferentes 
+		configuraciones
+		-Suele usarse mucho "mount" que es para montar/crear un componente y asignarlo a una variable, cabe destacar
+		que este metodo crea una instancia de todo el componente y sus nodos interiores
+		-Suele usarse mucho "shallo" que es para montar/crear una parte del componente y asignarlo a una variable, cabe destacar
+		que este metodo crea una solo esa parte del componente deseado sin sus nodos interiores
+		-Puede ponerse "verbose" en true en el package.json para que jeste sea mas descriptivo al correr las pruebas
+		-Para probar los actions que no hacen alguna llamada http de una app, solo bastara con crear un objeto que sabemos que 
+		se enviara al reducer, ejecutar el action y comparar la respuesta con el objeto
+		-Para probar los reducers solo se ejecuta el reducer deseado mandando el objeto/state y el caso que quieres que ek
+		reducer ejecute, osea, los casos que estan dentro del switch
+		-Para probar servicios/ llamadas http como fetch, necesitamos agregar la libreria "jest-fetch-mock -D" configurarla
+		dentro de "setupTest" y usar el metodo "mockResponseOnce" para poder modificar la respuesta que queremos simular,
+		tambien es necesario especificar en el "beforeEach" del "describe" "fetch.resetMocks()"
+
+Mocks
+	-Son funciones que simulan acciones que deberia hacer nuestra app(estilos, funciones de ciclo de vida, funciones que
+	muta algun componente, props que recibe un componente, etc.)
+		-Los mocks necesitan ser configurados en el package.json, dentro de "jest" se debe especificar "moduleNameMapper"
+		-Se necesi
+		
+ProviderMock
+	-Un mock para redux, en otras palabras, una funcion que simularia el manejador de estado de redux
+		-Se copia la estructura que se define en el index de la aplicacion, donde se configura el provider de redux
+		
+		
+Snapshots
+	-Sirven para testear componentes que no deberian cambiar su estructura (DOM). Se registran/crean una vez y este snapshot 
+	creado servira de referencia para las pruebas futuras
+		-Necesita la libreria "react-test-renderer -D"
+		-Para actualizar el snapshot de referencia se debe ejecutar "jest --updateSnapshot"
