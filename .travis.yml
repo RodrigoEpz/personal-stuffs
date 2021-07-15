@@ -7,8 +7,8 @@ node_js:
 git:
   depth: 3
 script:
-  - yarn test --cwd platzi-store-jest-01-react-jest/
-  - yarn build --cwd platzi-store-jest-01-react-jest/
+  - yarn --cwd platzi-store-jest-01-react-jest/ test
+  - yarn --cwd platzi-store-jest-01-react-jest/ build
 deploy:
   provider: pages
   edge: true
