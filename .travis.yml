@@ -1,0 +1,22 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+node_js:
+  - '14'
+git:
+  depth: 3
+script:
+  - yarn test --cwd platzi-store-jest-01-react-jest/
+  - yarn build --cwd platzi-store-jest-01-react-jest/
+deploy:
+  provider: pages
+  edge: true
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: platzi-store-jest-01-react-jest/dist/
+  target-branch: gh-pages
+  commit_message: "Deploy release ${TRAVIS_TAG}"
+  on:
+    branch: master
