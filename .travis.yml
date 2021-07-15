@@ -7,6 +7,7 @@ node_js:
 git:
   depth: 3
 script:
+  - yarn --cwd platzi-store-jest-01-react-jest/ install
   - yarn --cwd platzi-store-jest-01-react-jest/ test
   - yarn --cwd platzi-store-jest-01-react-jest/ build
 deploy:
