@@ -10,20 +10,10 @@ describe('Fetch API', () => {
 
     getData('https://google.com')
       .then((response) => {
-        return expect(response.data).toEqual('12345');
+        expect(response.data).toEqual('12345');
         done();
       });
-    expect(fetch.mock.calls[0][0]).toEqual('https://google.com');
-  });
-
-  test('Llamar una API y retornar datos return promise', () => {
-    fetch.mockResponseOnce(JSON.stringify({ data: '12345' }));
-
-    return getData('https://google.com')
-      .then((response) => {
-        return expect(response.data).toEqual('12345');
-      });
-    expect(fetch.mock.calls[0][0]).toEqual('https://google.com');
+    expect(fetch.mock.calls[0][0]).toEqual('https://googles.com');
   });
 
 });
