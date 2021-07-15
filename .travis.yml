@@ -1,7 +1,7 @@
 language: node_js
 cache:
   directories:
-    - ~/.npm
+    - ~/platzi-store-jest-01-react-jest/.npm
 node_js:
   - '14'
 git:
